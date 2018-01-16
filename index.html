@@ -238,6 +238,275 @@
 
 
   
+    <article id="post-CSS-Study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/16/CSS-Study/">CSS_Study</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/16/CSS-Study/" class="archive-article-date">
+  	<time datetime="2016-08-16T12:47:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-导入外部css样式"><a href="#1-导入外部css样式" class="headerlink" title="1.  导入外部css样式"></a>1.  导入外部css样式</h1><p><code>&lt;link href=&quot;base.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">其中rel=&quot;stylesheet&quot; type=&quot;text/css&quot;是固定写法不可改变</span><br><span class="line"> 内联式 &gt; 嵌入式&gt;外部式</span><br><span class="line"> 就近原则（离被设置元素越近优先级别越高）。</span><br></pre></td></tr></table></figure></p>
+<h1 id="2-类选择器"><a href="#2-类选择器" class="headerlink" title="2.类选择器"></a>2.类选择器</h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><p><strong>.</strong>类选器名称{css样式代码;}</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>英文圆点开头</li>
+<li>.类选器名称{css样式代码;}</li>
+</ol>
+<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><h1 id="1-使用合适的标签把要修饰的内容标记起来"><a href="#1-使用合适的标签把要修饰的内容标记起来" class="headerlink" title="1. 使用合适的标签把要修饰的内容标记起来"></a>1. 使用合适的标签把要修饰的内容标记起来</h1><ol>
+<li>class=”类选择器名称”为标签设置一个类</li>
+<li>设置类选器css样式，如下：<blockquote>
+<p> .stress{color:red;}/<em>类前面要加入一个英文圆点</em>/</p>
+<h1 id="3-ID选择器"><a href="#3-ID选择器" class="headerlink" title="3.ID选择器"></a>3.ID选择器</h1><p>在很多方面，ID选择器都类似于类选择符，但也有一些重要的区别：</p>
+</blockquote>
+</li>
+</ol>
+<p>1、为标签设置id=”ID名称”，而不是class=”类名称”。</p>
+<p>2、ID选择符的前面是井号（#）号，而不是英文圆点（.）。</p>
+<h1 id="4-类和ID选择器的区别"><a href="#4-类和ID选择器的区别" class="headerlink" title="4.类和ID选择器的区别"></a>4.类和ID选择器的区别</h1><ol>
+<li>相同点：可以应用于任何元素</li>
+<li>不同点：</li>
+</ol>
+<ul>
+<li><strong>ID选择器只能在文档中使用一次。</strong>与类选择器不同，在一个HTML文档中，ID选择器只能使用一次，而且仅一次。而类选择器可以使用多次。(一个ID 只能在同一个HTML中使用一次，class 可以重复使用)</li>
+<li>一个元素只能有一个ID  但是可以有多个class<h1 id="5-子选择器"><a href="#5-子选择器" class="headerlink" title="5.子选择器"></a>5.子选择器</h1>还有一个比较有用的选择器子选择器，即大于符号(&gt;),用于选择指定标签元素的第一代子元素。如右侧代码编辑器中的代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.food&gt;li&#123;border:1px solid red;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="6-包含-后代-选择器"><a href="#6-包含-后代-选择器" class="headerlink" title="6.包含(后代)选择器"></a>6.包含(后代)选择器</h1><p>包含选择器，即加入==空格==,用于选择指定标签元素下的后辈元素。如下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.first  span&#123;color:red;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.food&gt;li</span><br></pre></td></tr></table></figure>
+<p>是控制class food下第一代li标签</p>
+<p>而<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.food li</span><br></pre></td></tr></table></figure></p>
+<p>是控制class下所有的li标签</p>
+<h1 id="7-通用选择器"><a href="#7-通用选择器" class="headerlink" title="7.通用选择器"></a>7.通用选择器</h1><p>通用选择器是功能最强大的选择器，它使用一个（*）号指定，它的作用是匹配html中所有标签元素，如下使用下面代码使用html中任意标签元素字体颜色全部设置为红色：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* &#123;color:red;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="8-伪类选择符"><a href="#8-伪类选择符" class="headerlink" title="8.伪类选择符"></a>8.伪类选择符</h1><p>伪类选择符,它允许给html不存在的标签（标签的某种状态）设置样式，比如说我们给html中一个标签元素的鼠标滑过的状态来设置字体颜色：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:hover&#123;color:red;&#125;</span><br></pre></td></tr></table></figure>
+<p>hover   —-&gt;  鼠标滑过</p>
+<h1 id="9-字体设置"><a href="#9-字体设置" class="headerlink" title="9.字体设置"></a>9.字体设置</h1><ul>
+<li><h2 id="文字排版–粗体"><a href="#文字排版–粗体" class="headerlink" title="文字排版–粗体"></a>文字排版–粗体</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p span&#123;font-weight:bold;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="文字排版–斜体"><a href="#文字排版–斜体" class="headerlink" title="文字排版–斜体"></a>文字排版–斜体</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p a&#123;font-style:italic;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="文字排版–下划线"><a href="#文字排版–下划线" class="headerlink" title="文字排版–下划线"></a>文字排版–下划线</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p a&#123;text-decoration:underline;&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>none</td>
+<td>默认。定义标准的文本。</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>定义文本下的一条线。</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>定义文本上的一条线。</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>定义穿过文本下的一条线。</td>
+</tr>
+<tr>
+<td>blink</td>
+<td>定义闪烁的文本。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 text-decoration 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="10-段落排版"><a href="#10-段落排版" class="headerlink" title="10.段落排版"></a>10.段落排版</h1><ul>
+<li><h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;text-indent:2em;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="行间距（行高）"><a href="#行间距（行高）" class="headerlink" title="行间距（行高）"></a>行间距（行高）</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;line-height:1.5em;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="中文字间距、字母间距"><a href="#中文字间距、字母间距" class="headerlink" title="中文字间距、字母间距"></a>中文字间距、字母间距</h2>如果想在网页排版中设置文字间隔或者字母间隔就可以使用    letter-spacing 来实现，如下面代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">h1&#123;</span><br><span class="line">    letter-spacing:50px;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&lt;h1&gt;了不起的盖茨比&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：这个样式使用在英文单词时，是设置字母与字母之间的间距。<br>单词间距设置：</p>
+<p>如果我想设置英文单词之间的间距呢？可以使用 word-spacing 来实现。如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">h1&#123;</span><br><span class="line">    word-spacing:50px;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&lt;h1&gt;welcome to imooc!&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text-align:center;//right    left</span><br></pre></td></tr></table></figure>
+<h1 id="11-元素分类–内联元素–块状元素"><a href="#11-元素分类–内联元素–块状元素" class="headerlink" title="11.元素分类–内联元素–块状元素"></a>11.元素分类–内联元素–块状元素</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">     display:inline;//将块状元素转换为内联元素</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a&#123;</span><br><span class="line">     display:block;//将内联元素转换为块状元素</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="内联元素特点："><a href="#内联元素特点：" class="headerlink" title="内联元素特点："></a>内联元素特点：</h2><ul>
+<li><p>和其他元素都在一行上；</p>
+</li>
+<li><p>元素的高度、宽度及顶部和底部边距不可设置；</p>
+</li>
+<li><p>元素的宽度就是它包含的文字或图片的宽度，不可改变。</p>
+</li>
+</ul>
+<h2 id="块级元素特点："><a href="#块级元素特点：" class="headerlink" title="块级元素特点："></a>块级元素特点：</h2><ul>
+<li><p>每个块级元素都从新的一行开始，并且其后的元素也另起一行。（一个块级元素独占一行）</p>
+</li>
+<li><p>元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+</li>
+<li><p>元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。</p>
+<h2 id="内联块状元素"><a href="#内联块状元素" class="headerlink" title="内联块状元素"></a>内联块状元素</h2><p>内联块状元素（inline-block）就是同时具备内联元素、块状元素的特点，代码display:inline-block就是将元素设置为内联块状元素。(css2.1新增)，<img>、<input>标签就是这种内联块状标签。</p>
+</li>
+</ul>
+<p>inline-block 元素特点：</p>
+<p>1、和其他元素都在一行上；</p>
+<p>2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+<p>提示：下一小节是用视频动画来讲解css中的盒模型。</p>
+<h2 id="border"><a href="#border" class="headerlink" title="border"></a>border</h2><p>dashed（虚线）| dotted（点线）| solid（实线）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    border:2px  solid  red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="可以只设置底边框"><a href="#可以只设置底边框" class="headerlink" title="可以只设置底边框"></a>可以只设置底边框</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div&#123;border-bottom:1px solid red;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="也可以实现其它三边-上、右、左-边框的设置："><a href="#也可以实现其它三边-上、右、左-边框的设置：" class="headerlink" title="也可以实现其它三边(上、右、左)边框的设置："></a>也可以实现其它三边(上、右、左)边框的设置：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">border-top:1px solid red;</span><br><span class="line">border-right:1px solid red; </span><br><span class="line">border-left:1px solid red;</span><br></pre></td></tr></table></figure>
+<h1 id="12-层模型"><a href="#12-层模型" class="headerlink" title="12.层模型"></a>12.层模型</h1><ul>
+<li><h2 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h2></li>
+<li><p>如果想为元素设置层模型中的绝对定位，需要设置position:absolute(表示绝对定位)，这条语句的作用将元素从文档流中拖出来，然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。</p>
+<p>如下面代码可以实现div元素相对于浏览器窗口向右移动100px，向下移动50px。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:200px;</span><br><span class="line">    border:2px red solid;</span><br><span class="line">    position:absolute;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2>如果想为元素设置层模型中的相对定位，需要设置position:relative（表示相对定位），它通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，移动的方向和幅度由left、right、top、bottom属性确定，偏移前的位置保留不动。</li>
+</ul>
+<p>如下代码实现相对于以前位置向下移动50px，向右移动100px;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#div1&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:200px;</span><br><span class="line">    border:2px red solid;</span><br><span class="line">    position:relative;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h2>fixed：表示固定定位，与absolute定位类型类似，但它的相对移动的坐标是视图（屏幕内的网页窗口）本身。由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小，因此固定定位的元素会始终位于浏览器窗口内视图的某个位置，不会受文档流动影响，这与background-attachment:fixed;属性功能相同。</li>
+</ul>
+<p>以下代码可以实现相对于浏览器视图向右移动100px，向下移动50px。并且拖动滚动条时位置固定不变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#div1&#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:200px;</span><br><span class="line">    border:2px red solid;</span><br><span class="line">    position:fixed;</span><br><span class="line">    left:100px;</span><br><span class="line">    top:50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line"></span><br><span class="line">1、使用这一简写方式你至少要指定 font-size 和 font-family 属性，其他的属性(如 font-weight、font-style、font-varient、line-height)如未指定将自动使用默认值。</span><br><span class="line"></span><br><span class="line">2、在缩写时 font-size 与 line-height 中间要加入“/”斜扛。</span><br></pre></td></tr></table></figure>
+<p>一般情况下因为对于中文网站，英文还是比较少的，所以下面缩写代码比较常用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    font:12px/1.5em  &quot;宋体&quot;,sans-serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="13-长度值"><a href="#13-长度值" class="headerlink" title="13.长度值"></a>13.长度值</h1><h2 id="1、像素"><a href="#1、像素" class="headerlink" title="1、像素"></a>1、像素</h2><p>像素为什么是相对单位呢？因为像素指的是显示器上的小点（CSS规范中假设“90像素=1英寸”）。实际情况是浏览器会使用显示器的实际像素值有关，在目前大多数的设计者都倾向于使用像素（px）作为单位。</p>
+<h2 id="2、em"><a href="#2、em" class="headerlink" title="2、em"></a>2、em</h2><p>就是本元素给定字体的 font-size 值，如果元素的 font-size 为 14px ，那么 1em = 14px；如果 font-size 为 18px，那么 1em = 18px。如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-size:12px;text-indent:2em;&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码就是可以实现段落首行缩进 24px（也就是两个字体大小的距离）。</p>
+<h3 id="下面注意一个特殊情况："><a href="#下面注意一个特殊情况：" class="headerlink" title="下面注意一个特殊情况："></a>下面注意一个特殊情况：</h3><p>但当给 font-size 设置单位为 em 时，此时计算的标准以 p 的父元素的 font-size 为基础。如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line"></span><br><span class="line">&lt;p&gt;以这个&lt;span&gt;例子&lt;/span&gt;为例。&lt;/p&gt;</span><br><span class="line">css:</span><br><span class="line"></span><br><span class="line">p&#123;font-size:14px&#125;</span><br><span class="line">span&#123;font-size:0.8em;&#125;</span><br></pre></td></tr></table></figure>
+<p>结果 span 中的字体“例子”字体大小就为 11.2px（14 * 0.8 = 11.2px）。</p>
+<h2 id="3、百分比"><a href="#3、百分比" class="headerlink" title="3、百分比"></a>3、百分比</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p&#123;font-size:12px;line-height:130%&#125;</span><br></pre></td></tr></table></figure>
+<p>设置行高（行间距）为字体的130%（12 * 1.3 = 15.6px）。</p>
+<h1 id="14-水平居中设置-定宽块状元素"><a href="#14-水平居中设置-定宽块状元素" class="headerlink" title="14.水平居中设置-定宽块状元素"></a>14.水平居中设置-定宽块状元素</h1><p>当被设置元素为 块状元素 时用 text-align：center 就不起作用了，这时也分两种情况：定宽块状元素和不定宽块状元素。</p>
+<p>这一小节我们先来讲一讲定宽块状元素。(定宽块状元素：块状元素的宽度width为固定值。)</p>
+<p>满足定宽和块状两个条件的元素是可以通过设置“左右margin”值为“auto”来实现居中的。我们来看个例子就是设置 div 这个块状元素水平居中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">html代码：</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div&gt;我是定宽块状元素，哈哈，我要水平居中显示。&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">css代码：</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line">    border:1px solid red;/*为了显示居中效果明显为 div 设置了边框*/</span><br><span class="line">    </span><br><span class="line">    width:200px;/*定宽*/</span><br><span class="line">    margin:20px auto;/* margin-left 与 margin-right 设置为 auto */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：元素的“上下 margin” 是可以随意设置的。</p>
+<ul>
+<li><h2 id="水平居中总结-不定宽块状元素方法（一）"><a href="#水平居中总结-不定宽块状元素方法（一）" class="headerlink" title="水平居中总结-不定宽块状元素方法（一）"></a>水平居中总结-不定宽块状元素方法（一）</h2></li>
+</ul>
+<p>利用table标签的长度自适应性—即不定义其长度也不默认父元素body的长度（table其长度根据其内文本长度决定），因此可以看做一个定宽度块元素，然后再利用定宽度块状居中的margin的方法，使其水平居中。</p>
+<p>第一步：为需要设置的居中的元素外面加入一个 table 标签 ( 包括 <tbody>、<tr>、<td> )。</td></tr></tbody></p>
+<p>第二步：为这个 table 设置“左右 margin 居中”（这个和定宽块状元素的方法一样）。</p>
+<p>举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">html代码：</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line"> &lt;table&gt;</span><br><span class="line">  &lt;tbody&gt;</span><br><span class="line">    &lt;tr&gt;&lt;td&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;我是第一行文本&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;我是第二行文本&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;我是第三行文本&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">  &lt;/tbody&gt;</span><br><span class="line"> &lt;/table&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">css代码：</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">table&#123;</span><br><span class="line">    border:1px solid;</span><br><span class="line">    margin:0 auto;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="第二种方法：改变块级元素的-display-为-inline-类型"><a href="#第二种方法：改变块级元素的-display-为-inline-类型" class="headerlink" title="第二种方法：改变块级元素的 display 为 inline 类型"></a>第二种方法：改变块级元素的 display 为 inline 类型</h2><p>（设置为 行内元素 显示），然后使用 text-align:center 来实现居中效果。如下例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">html代码：</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">css代码：</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.container&#123;</span><br><span class="line">    text-align:center;</span><br><span class="line">&#125;</span><br><span class="line">/* margin:0;padding:0（消除文本与div边框之间的间隙）*/</span><br><span class="line">.container ul&#123;</span><br><span class="line">    list-style:none;</span><br><span class="line">    margin:0;</span><br><span class="line">    padding:0;</span><br><span class="line">    display:inline;</span><br><span class="line">&#125;</span><br><span class="line">/* margin-right:8px（设置li文本之间的间隔）*/</span><br><span class="line">.container li&#123;</span><br><span class="line">    margin-right:8px;</span><br><span class="line">    display:inline;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h2><p>通过给父元素设置 float，然后给父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left: -50% 来实现水平居中。</p>
+<ul>
+<li>代码如下：</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;wrap-center&quot;&gt;我们来学习一下这种方法。&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">css代码：</span><br><span class="line">&lt;stlye&gt;</span><br><span class="line">.wrap&#123;</span><br><span class="line">    float:left;</span><br><span class="line">    position:relative;</span><br><span class="line">	left:50%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">.wrap-center&#123;</span><br><span class="line">    background:#ccc;</span><br><span class="line">    position:relative;</span><br><span class="line">	left:-50%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/stlye&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="垂直居中-父元素高度确定的单行文本"><a href="#垂直居中-父元素高度确定的单行文本" class="headerlink" title="垂直居中-父元素高度确定的单行文本"></a>垂直居中-父元素高度确定的单行文本</h2></li>
+<li><p>父元素高度确定的单行文本的竖直居中的方法是通过设置父元素的 height 和 line-height 高度一致来实现的。(height: 该元素的高度，line-height: 顾名思义，行高（行间距），指在文本中，行与行之间的 基线间的距离 )。</p>
+</li>
+<li><p>line-height 与 font-size 的计算值之差，在 CSS 中成为“行间距”。分为两半，分别加到一个文本行内容的顶部和底部。</p>
+</li>
+<li><p>这种文字行高与块高一致带来了一个弊端：当文字内容的长度大于块的宽时，就有内容脱离了块。</p>
+</li>
+<li><p>如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    hi,imooc!</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">css代码：</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.container&#123;</span><br><span class="line">    height:100px;</span><br><span class="line">    line-height:100px;</span><br><span class="line">    background:#999;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="垂直居中-父元素高度确定的多行文本（方法一）"><a href="#垂直居中-父元素高度确定的多行文本（方法一）" class="headerlink" title="垂直居中-父元素高度确定的多行文本（方法一）"></a>垂直居中-父元素高度确定的多行文本（方法一）</h2><p>父元素高度确定的多行文本、图片等的竖直居中的方法有两种：</p>
+</li>
+</ul>
+<p>方法一：使用插入 table  (包括tbody、tr、td)标签，同时设置 vertical-align：middle。</p>
+<p>css 中有一个用于竖直居中的属性 vertical-align，在父元素设置此样式时，会对inline-block类型的子元素都有用。下面看一下例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">html代码：</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;wrap&quot;&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;p&gt;看我是否可以居中。&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">css代码：</span><br><span class="line"></span><br><span class="line">table td&#123;height:500px;background:#ccc&#125;</span><br><span class="line">//因为 td 标签默认情况下就默认设置了 vertical-align 为 middle，所以我们不需要显式地设置了。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/16/CSS-Study/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -329,6 +598,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
