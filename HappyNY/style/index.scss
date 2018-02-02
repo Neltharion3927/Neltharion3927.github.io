@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    width: 100vw;
+    height: 100vh
+}
+
+// body::after{
+//  content:'';
+//  width: 20vw;
+//  height: 5vh;
+//  position:fixed;
+//  bottom:5vh;
+//  left:40vw;
+//  box-shadow: 0 0 20px -10px #000;
+// }
+.page {
+    width: 100vw;
+    height: 100vh;
+    text-align: center; 
+    .lantern {
+        text-align: center;
+        img {
+            height: 71vh;
+        }
+    }
+}
+
+.page1 {
+    background: url(../img2/p1_bg.jpg);
+    .p1_img_2 {
+        height: 20vh
+    }
+}
+
+.circular {
+    width: 45vw;
+    height: 45vw;
+    position:absolute;
+    top: 20vh;
+    left: 27.5vw;
+}
+
+.circular svg {
+    display: block;
+    overflow: visible;
+    font-size: 8px;
+    animation: turn360deg 8s linear infinite;
+    -webkit-animation: turn360deg 8s linear infinite;
+}
+
+.circular path {
+    fill: none;
+}
+
+@keyframes turn360deg {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@-webkit-keyframes turn360deg {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.page .lantern::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 24vh;
+    margin: auto;
+    width: 30vw;
+    height: 30vw;
+    background-color: #f00;
+    border-radius: 50%;
+    opacity: .5;
+    box-shadow: 0 0 10vw 10vw #f00;
+    animation: bounce 1s infinite alternate;
+    -webkit-animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        opacity: .5;
+        -webkit-transform: scale(.7, .7);
+        transform: scale(.7, .7);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// 安卓（至少我的一加2）keyframes 不兼容问题
+// 需要使用-webkit-animation: bounce 1s infinite alternate;
+// 以及@-webkit-keyframes来生成和调用动画CSS
+@-webkit-keyframes bounce {
+    0% {
+        opacity: .5;
+        -webkit-transform: scale(.8, .8);
+        transform: scale(.8, .8);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.page2 {
+    background: #c00;
+
+    .p2_img_1 {
+        height: 40vh;
+        display: block;
+        position: absolute;
+        top: 130vh;
+        left: 30vw;
+        -webkit-animation: bounce 1.2s infinite alternate;
+        animation: bounce 1.2s infinite alternate;
+    }
+
+    .P2_img_2 {
+        width: 100%;
+        height: 100vh;
+    }
+}
