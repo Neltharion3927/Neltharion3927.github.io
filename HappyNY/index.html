@@ -1,53 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Happy New Year!</title>
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-	<link rel="stylesheet" type="text/css" href="./style/index.css">
+    <meta charset="UTF-8">
+    <title>Happy New Year!</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_564832_pusbd1x2oyvcayvi.css">
+    <link rel="stylesheet" type="text/css" href="./style/jquery.fullPage.css">
+    <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style/index.css">
 </head>
+
 <body>
-	<div class="page page1">
-	<div class="lantern">
-	        <div class="circular">
-            又是一年美好的开始，又是一段幸福的时光，又一次真诚地祝福你：过年好！
+    <img class="P2_img_2" src="./img2/p2_bg_2.png">
+    <div id="fullpage">
+        <div class="page page1 section">
+            <div class="lantern">
+                <div class="circular">
+                    又是一年美好的开始，又是一段幸福的时光，又一次真诚地祝福你：过年好！
+                </div>
+                <img src="./img2/p1_lantern.png">
+                <i class="iconfont icon-arrow-down color-black"></i>
+            </div>
+            <img class="p1_img_2" src="./img2/p1_fire.png">
         </div>
-	<img src="./img2/p1_lantern.png">
-	</div>
-	<img class="p1_img_2" src="./img2/p1_fire.png">
-	</div>
-	<div class="page page2"><img class="P2_img_2" src="./img2/p2_bg_2.png">
-		<img class="p2_img_1" src="./img2/p2_bg_1.png">
-	</div>
+        <div class="page page2 section">
+            <img class="p2_img_1" src="./img2/p2_bg_1.png">
+            <i class="iconfont icon-arrow-down"></i>
+        </div>
+        <div class="page page3 section">
+<img src="./img2/p2_circle_inner.png" alt="" class="circle1">
+            <img src="./img2/p2_circle_middle.png" alt="" class="circle2">
+            <img src="./img2/p2_circle_outer.png" alt="" class="circle3">
+            <img src="./img2/2018gold.png" alt="" class="circle4">
 
-	    <script type="text/javascript">
-    function $$(selector, context) {
-        context = context || document;
-        var elements = context.querySelectorAll(selector);
-        return Array.prototype.slice.call(elements);
-    }
-
-    $$('.circular').forEach(function(el) {
-        var NS = "http://www.w3.org/2000/svg";
-        var xlinkNs = "http://www.w3.org/1999/xlink";
-        var svg = document.createElementNS(NS, "svg");
-        var circle = document.createElementNS(NS, "path");
-        var text = document.createElementNS(NS, "text");
-        var textPath = document.createElementNS(NS, "textPath");
-        svg.setAttribute("viewBox", "0 0 100 100");
-
-        circle.setAttribute("d", "M0,50 a50,50 0 1,1 0,1z");
-        circle.setAttribute("id", "circle");
-
-        textPath.setAttributeNS(xlinkNs, 'xlink:href', '#circle');
-        textPath.textContent = el.textContent;
-
-        text.appendChild(textPath);
-        svg.appendChild(circle);
-        svg.appendChild(text);
-        el.textContent = '';
-        el.appendChild(svg);
+        <i class="iconfont icon-arrow-down"></i>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#fullpage').fullpage();
     });
     </script>
 </body>
+
 </html>

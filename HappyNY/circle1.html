@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+</head>
+<style type="text/css">
+body{background: #c00}
+.page3{width: 100vw;height: 100vh;}
+
+    img{position:absolute}
+    .circle1{
+        top: 27vh;
+        left: 30vw;
+        width: 40vw;
+        -webkit-animation: circle 1s infinite linear;
+        animation: circle 1s infinite linear;
+    }
+    .circle2{
+        top: 24vh;
+        left:25vw;
+        width: 50vw;
+                        -webkit-animation: circle 1s infinite linear;
+        animation: circle2 1s infinite linear;
+    }
+    .circle3{
+        left:20vw;
+        top: 22vh;
+        width: 60vw;
+                -webkit-animation: circle 1s infinite linear;
+        animation: circle 1s infinite linear;
+    }
+    .circle4{
+    	display: none;
+    	width: 40vw;
+    	top: 27vh;
+    	left: 30vw;
+    }
+    @-webkit-keyframes circle{
+    	    	from{
+				transform: rotate(0deg)
+    		}to{
+				transform: rotate(360deg)
+    		}
+    }
+        @keyframes circle{
+    	from{
+				transform: rotate(0deg)
+    		}to{
+				transform: rotate(360deg)
+    		}
+    }
+        @-webkit-keyframes circle2{
+    	    	from{
+				transform: rotate(360deg)
+    		}to{
+				transform: rotate(0deg)
+    		}
+    }
+        @keyframes circle2{
+    	from{
+				transform: rotate(360deg)
+    		}to{
+				transform: rotate(0deg)
+    		}
+    }
+</style>
+<body>
+        <div class="page page3 section">
+            <img src="./img2/p2_circle_inner.png" alt="" class="circle1">
+            <img src="./img2/p2_circle_middle.png" alt="" class="circle2">
+            <img src="./img2/p2_circle_outer.png" alt="" class="circle3">
+            <img src="./img2/2018gold.png" alt="" class="circle4">
+
+        <i class="iconfont icon-arrow-down"></i>
+        </div>
+</body>
+</html>
