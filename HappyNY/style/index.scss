@@ -1,4 +1,5 @@
 @import './_mixin';
+@import './_keyframes';
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +28,16 @@ body {
             height: 71vh;
         }
     }
+    .icon-arrow-down {
+        color: #fff;
+        display: block;
+        font-size: 15vw;
+        position: absolute;
+        bottom: 5vh;
+        left: 42.5vw;
+        @include css3(transform, scale(1.5, 1));
+        @include css3(animation, none-block 1s infinite alternate);
+    }
 }
 
 .page1 {
@@ -37,97 +48,44 @@ body {
     .color-black {
         color: black!important
     }
-}
-
-.circular {
-    width: 45vw;
-    height: 45vw;
-    position: absolute;
-    top: 23vh;
-    left: 27.5vw;
-}
-
-.active .circular svg {
-    display: block;
-    overflow: visible;
-    font-size: 8px;
-    @include css3(animation, turn360deg 8s linear infinite);
-}
-
-.circular path {
-    fill: none;
-}
-
-
-@include keyframes (turn360deg) {
-    from {
-        @include css3 (transform, rotate(360deg));
+    .circular {
+        width: 45vw;
+        height: 45vw;
+        position: absolute;
+        top: 23vh;
+        left: 27.5vw;
     }
-    to {
-        @include css3 (transform, rotate(0deg));
-    }
-}
-
-
-
-.page.active .lantern::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 28vh;
-    margin: auto;
-    width: 30vw;
-    height: 30vw;
-    background-color: #f00;
-    border-radius: 50%;
-    opacity: .5;
-    box-shadow: 0 0 8vw 8vw #f00;
-    @include css3(animation, bounce 1s infinite alternate);
-}
-
-@keyframes bounce {
-    0% {
-        opacity: .5;
-        @include css3(transform, scale(.7, .7));
-    }
-    100% {
-        opacity: 1;
+    @at-root .active.page1 {
+        .circular svg {
+            display: block;
+            overflow: visible;
+            font-size: 8px;
+            @include css3(animation, turn360deg 8s linear infinite);
+        }
+        .circular path {
+            fill: none;
+        }
+        .lantern::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 28vh;
+            margin: auto;
+            width: 30vw;
+            height: 30vw;
+            background-color: #f00;
+            border-radius: 50%;
+            opacity: .5;
+            box-shadow: 0 0 8vw 8vw #f00;
+            @include css3(animation, bounce 1s infinite alternate);
+        }
     }
 }
 
 // 安卓（至少我的一加2）keyframes 不兼容问题
 // 需要使用-webkit-animation: bounce 1s infinite alternate;
 // 以及@-webkit-keyframes来生成和调用动画CSS
-@-webkit-keyframes bounce {
-    0% {
-        opacity: .5;
-        @include css3(transform, scale(.8, .8));
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.page3 {
-
-    .p2_img_1 {
-        height: 40vh;
-        display: block;
-        position: absolute;
-        top: 30vh;
-        left: 130vw;
-        @include css3(transition, all .5s);
-    }
-}
-
-.active.page3 {
-    .p2_img_1 {
-        left: 30vw;
-        @include css3(animation, bounce 1.2s infinite alternate);
-    }
-}
-
 .page2 {
     img {
         position: absolute
@@ -160,160 +118,138 @@ body {
         top: 0vh;
         @include css3(transition, left 1s linear);
     }
-}
-
-@include keyframes (circle) {
-    from {
-        transform: rotate(360deg)
-    }
-    to {
-        transform: rotate(0deg)
-    }
-}
-
-
-@include keyframes (circle2) {
-    from {
-        @include css3(transform, rotate(0deg))
-    }
-    to {
-        @include css3(transform, rotate(360deg))
+    @at-root .active.page2 {
+        .circle4 {
+            @include css3(animation, fade-out 4s 1);
+        }
+        .circle1,
+        .circle3 {
+            @include css3(animation, circle 1.5s infinite linear);
+        }
+        .circle2 {
+            @include css3(animation, circle2 1.5s infinite linear);
+        }
+        .page2_slide {
+            left: 0;
+            @include css3(animation, rotateY360deg 1s 1 linear);
+        }
     }
 }
 
-@include keyframes (fade-out) {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+.page3 {
 
-.active.page2 {
-    .circle4 {
-        @include css3(animation, fade-out 4s 1);
+    .p2_img_1 {
+        height: 40vh;
+        display: block;
+        position: absolute;
+        top: 30vh;
+        left: 130vw;
+        @include css3(transition, all .5s);
     }
-    .circle1,
-    .circle3 {
-        @include css3(animation, circle 1.5s infinite linear);
-    }
-    .circle2 {
-        @include css3(animation, circle2 1.5s infinite linear);
-    }
-    .page2_slide {
-        left: 0;
-        @include css3(animation, rotateY360deg 1s 1 linear);
-    }
-}
-
-
-@include keyframes(rotateY360deg) {
-    from {
-        @include css3(transform, rotateY(0deg));
-    }
-    to {
-        @include css3(transform, rotateY(360deg));
-    }
-}
-
-.icon-arrow-down {
-    color: #fff;
-    display: block;
-    font-size: 15vw;
-    position: absolute;
-    bottom: 5vh;
-    left: 42.5vw;
-    @include css3(transform, scale(1.5, 1));
-    @include css3(animation, none-block 1s infinite alternate);
-}
-
-
-
-@include keyframes (none-block) {
-    from {
-        opacity: .8;
-        bottom: 5vh;
-        @include css3(transform, scale(1.5, 1));
-    }
-    to {
-        opacity: 0;
-        bottom: 2vh;
-        @include css3(transform, scale(.5, .5));
+    @at-root .active.page3 {
+        .p2_img_1 {
+            left: 30vw;
+            @include css3(animation, bounce 1.2s infinite alternate);
+        }
     }
 }
 
 .page4 {
+    img {
+        position: absolute;
+        z-index: 1;
+        @include css3(transition, all 1.5s linear);
+    }
     .dog {
         width: 60vw;
-        position: absolute;
         top: 25vh;
         right: 20vw;
-       
+        z-index: 2;
     }
 
-    .cloud {
-        width: 100vw;
-        height: 100vh;
+    .cloudTop {
+        top: -10vh;
+        right: -40vw;
+        width: 40vw;
+    }
+    .cloudBottom {
+        width: 50vw;
+        bottom: -30vh;
+        left: -45vw;
+        @include css3(transform, rotateY(180deg));
+    }
+    .fontNY {
+        width: 50vw;
+        bottom: 10vh;
+        right: -50vw;
+
+    }
+    @at-root .active.page4 {
+        .cloudTop {
+            right: 0;
+            top: 10vh;
+        }
+        .dog {
+            @include css3(animation, dogMove 2s 1 linear);
+        }
+        .cloudBottom {
+            left: 0;
+            bottom: 30vh;
+        }
+        .fontNY{right:42vw;}
+    }
+}
+
+.page5 {
+    img {
         position: absolute;
+    }
+    .centerFont {
+        top: 30vh;
+        left: 25vw;
+        width: 50vw;
+    }
+    .leftFont {
+        top: 10vh;
+        left: 5vw;
+        width: 30vw;
+        @include css3(transform, rotateZ(15deg))
+    }
+    .rightFont {
+        top: 10vh;
+        right: 5vw;
+        width: 30vw;
+        @include css3(transform, rotateZ(-15deg))
+    }
+}
+
+.music {
+    position: fixed;
+    right: 4vw;
+    top: 3vh;
+    width: 15vw;
+    height: 15vw;
+    border: 4px solid #ef1639;
+    border-radius: 50%;
+    background-color: #fff;
+    img:first-of-type {
+        position: absolute;
+        width: 80%;
         top: 0;
-        left: -100vw;
-        @include css3(transition, all 1s linear);
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        z-index: 1
     }
-}
-
-@include keyframes(dogMove) {
-    0% {
-        right: -60vw;
-        top: 30vh;
+    img:last-of-type {
+        position: absolute;
+        width: 28.241%;
+        top: 24%;
+        right: 2.5%;
+        z-index: 2;
     }
-    10% {
-        right: -54vw;
-        top: 28vh;
-    }
-    20% {
-        right: -44vw;
-        top: 20vh;
-    }
-    30% {
-        right: -36vw;
-        top: 28vh;
-    }
-    40% {
-        right: -28vw;
-        top: 30vh;
-    }
-    50% {
-        right: -20vw;
-        top: 22vh;
-    }
-    60% {
-        right: -12vw;
-        top: 20vh;
-    }
-    70% {
-        right: -4vw;
-        top: 22vh;
-    }
-    80% {
-        right: 4vw;
-        top: 30vh;
-    }
-    90% {
-        right: 12vw;
-        top: 28vh;
-    }
-    100% {
-        right: 20vw;
-        top: 25vh;
-    }
-}
-
-.active.page4 {
-    .cloud {
-        left: 0
-    }
-    .dog{
-        @include css3(animation, dogMove 2s 1 linear);
+    img.play {
+        @include css3 (animation, circle2 4s linear infinite);
     }
 }

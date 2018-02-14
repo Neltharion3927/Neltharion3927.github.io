@@ -25,3 +25,46 @@ $$('.circular').forEach(function(el) {
     el.textContent = '';
     el.appendChild(svg);
 });
+
+
+window.onload = function(){
+  var music = document.getElementById("music");
+  var audio = document.getElementsByTagName("audio")[0];
+
+  //当音乐停止时，停止转动
+  audio.addEventListener("ended",function(event){
+    music.setAttribute("class","");
+  },false);
+
+  //点击时，音乐停止
+  // music.onclick = function(){
+  //   if(audio.paused)
+  //   {
+  //     audio.play();
+  //     //this.setAttribute("class","play");
+  //     this.style.animationPlayState = "running";
+  //   }
+  //   else
+  //   {
+  //     audio.pause();
+  //     //this.setAttribute("class","");
+  //     this.style.animationPlayState = "paused";
+  //   }
+  // }
+
+  music.addEventListener("touchstart",function(event){
+    if(audio.paused)
+    {
+      audio.play();
+      this.setAttribute("class","play");
+      //this.style.animationPlayState = "running";
+    }
+    else
+    {
+      audio.pause();
+      this.setAttribute("class","");
+      //this.style.animationPlayState = "paused";
+    }
+  },false);
+
+};
